@@ -1,0 +1,61 @@
+# add number on to each element
+df['symboling']= df['symboling']+1
+
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html
+
+# replace missing values with mean of column
+mean = df['normalized-losses'].mean()
+df['normalized-losses'].replace(np.nan, mean)
+
+# drop missing value in row
+df.dropna(subset=["price"], axis=0, inplace=True)
+
+# drop missing value in column
+df.dropna(subset=["price"], axis=1, inplace=True)
+
+inplace = true 
+Setting the argument in place to true, allows the modification to be done on the data set directly. In place equals true, just writes the result back into the data frame. This is equivalent to this line of code
+
+This line of code does NOT change the data frame:
+df = df.dropna(subset=["price"], axis=1)
+
+---------------------------------------
+
+https://stackoverflow.com/questions/26266362/how-to-count-the-nan-values-in-a-column-in-pandas-dataframe
+
+Count NaNs
+
+For one column:
+s = pd.Series([1,2,3, np.nan, np.nan])
+s.isna().sum() 
+
+For several columns, it also works:
+df = pd.DataFrame({'a':[1,2,np.nan], 'b':[np.nan,1,np.nan]})
+df.isna().sum()
+
+---------------------------
+How to get a summary of your data
+
+https://stackoverflow.com/questions/22257527/how-do-i-get-a-summary-count-of-missing-nan-data-by-column-in-pandas
+
+# create df and add NaNs
+df = DataFrame(np.random.randn(10,2))
+df.iloc[3:6,0] = np.nan
+df
+
+df.describe()
+df.info()
+len(df.index)-df.count()
+
+
+
+
+
+
+
+
+
+
+
+
+

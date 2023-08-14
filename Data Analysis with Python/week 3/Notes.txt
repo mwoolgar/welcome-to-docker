@@ -1,0 +1,43 @@
+Descriptive Statistics::
+
+df.describe()
+
+df.describe(all) - this includes the NaN values
+
+value_counts() - summarize categorical data
+e.g. 
+drive_wheels = df['drive-wheels'].value_counts()
+
+drive_wheels_counts.rename(columns={'drive-wheels':'value_counts' inplace=True)
+drive_wheels_counts.index.name= 'drive-wheels'
+
+
+Box plots::
+Good for comparing groups.
+
+sns.boxplot(x= "drive-wheels", y="price", data=df)
+
+Median - Middle
+Upper Quartile (75th percentile)
+Lower Quartile (25th percentile)
+
+Lower + Upper Quartile = Inter-Quartile Range
+
+The lower and upper extremes. These are calculated as 1.5 times the interquartile range above the 75th percentile and as 1.5 times the IQR below the 25th percentile.
+
+Scatter Plots::
+
+Good for comparing relationships between two variables
+Predictor/independent variables on x-axis (engine size)
+Target/dependent variables on y-axis (price)
+
+uses Motplotlib
+
+y=df('engine-size')
+x=df('price')
+plt.scatter(x,y)
+
+
+
+
+
